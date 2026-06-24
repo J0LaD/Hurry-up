@@ -1,0 +1,17 @@
+name: Code quality check
+
+on: push
+
+jobs:
+    build:
+        name: Check code validity
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout source code
+              uses: actions/checkout@v7
+            
+            - name: Check build
+              run: cargo build
+
+            - name: Run tests
+              run: cargo test
